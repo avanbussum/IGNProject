@@ -11,8 +11,13 @@ function App() {
   const [genres, setGenre] = useState("");
   
   const [media_type, setMedia_type] = useState("");
-  const [mediaList, setMediaList] = useState([]);
   const [searchGenres, setSearchGenres] = useState("");
+
+  const [searchGenresList, setsearchGenresList] = useState([]);
+  const [searchMediaTypeList, setMediaTypeList] = useState([]);
+
+
+  const [mediaList, setMediaList] = useState([]);
   const genreList = ['{Drama}','{Horror}','{Action}','{Sci-Fi}','{Fantasy}','{Animation}']
   const mediaTypeList = ['Movie','Show','Comic','Game']
 
