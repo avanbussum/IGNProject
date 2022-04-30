@@ -14,11 +14,11 @@ app.use(express.json());
 
 // Connect to MySQL
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: 'sql3.freemysqlhosting.net',
     port: '3306', 
-    user: 'root',
-    password: 'password',
-    database: 'code_foo'
+    user: 'sql3489075',
+    password: 'BBbXuCTdpc',
+    database: 'sql3489075'
 });
 
 // Test connection
@@ -82,7 +82,7 @@ app.get('/reviewfind/*', (req, res) => {
 
 
 app.get("/medias", (req, res) => {
-  db.query("SELECT * FROM codefoobackend", (err, result) => {
+  db.query("SELECT * FROM codefooremote", (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -98,7 +98,7 @@ app.get("/typefinder/:media_type", (req, res) => {
   console.log("Fetching user with id: " + req.params.media_type);
 
   const type = req.params.media_type;
-  const queryString = "SELECT * FROM codefoobackend WHERE media_type = ?";
+  const queryString = "SELECT * FROM codefooremote WHERE media_type = ?";
   
   db.query(queryString, [type], (err, result) => {
    
@@ -116,7 +116,7 @@ app.get("/genrefinder/:genres", (req, res) => {
     console.log("Fetching user with id: " + req.params.genres);
 
     const genre = req.params.genres;
-    const queryString = "SELECT * FROM codefoobackend WHERE genres = ?";
+    const queryString = "SELECT * FROM codefooremote WHERE genres = ?";
     
     db.query(queryString, [genre], (err, result) => {
      

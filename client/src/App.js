@@ -12,14 +12,11 @@ function App() {
   const [review_url, setReview_Url] = useState("");
   const [short_description, setShort_description] = useState("");
   const [genres, setGenre] = useState("");
+  const [media_type, setMediaType] = useState("");
+
   
-  const [media_type, setMedia_type] = useState("All Media");
-  const [searchGenre, setsearchGenre] = useState("All Genres");
-
-  const [searchGenreList, setsearchGenreList] = useState([]);
-  const [searchMediaTypeList, setMediaTypeList] = useState([]);
-
-
+  const [searchMediaType, setSearchMediaType] = useState("All Media");
+  const [searchGenre, setSearchGenre] = useState("All Genres");
   const [mediaList, setMediaList] = useState([]);
   
 
@@ -51,27 +48,22 @@ function App() {
   };
 
   const getMediaType = () => {
-    Axios.get("http://localhost:3004/typefinder/" + media_type).then(
+    Axios.get("http://localhost:3004/typefinder/" + searchMediaType).then(
       (response) => {
         console.log(response.data);
         setMediaList(response.data);
       });
   };
 
-  
-
-
- 
-
   return (
     <div className=".App">
-      <TailwindButton setsearchGenre={setsearchGenre} setMedia_type={setMedia_type}>Show All Entertainment</TailwindButton>
+      <TailwindButton setSearchGenre={setSearchGenre} setSearchMediaType={setSearchMediaType}>Show All Entertainment</TailwindButton>
       <div className="flex px-5 justify-center">
         <div className="flex items-center justify-center ">
           <div className="flex border-gray-200 rounded-lg gap-x-96">
           
-            <GenreDropDown setsearchGenre={setsearchGenre} searchGenre={searchGenre}></GenreDropDown>  
-            <MediaDropDown setMedia_type={setMedia_type} media_type={media_type}></MediaDropDown>
+            <GenreDropDown setSearchGenre={setSearchGenre} searchGenre={searchGenre}></GenreDropDown>  
+            <MediaDropDown setSearchMediaType={setSearchMediaType} searchMediaType={searchMediaType}></MediaDropDown>
             
           </div>
         </div>
@@ -84,7 +76,7 @@ function App() {
           </h3>
           
           <div className="lg:grid grid-cols-4 grid-row-2">
-            <Items mediaList={mediaList} searchGenre={searchGenre} media_type={media_type}></Items>
+            <Items mediaList={mediaList} searchGenre={searchGenre} searchMediaType={searchMediaType}></Items>
           </div>
         </div>
       </div>
@@ -94,13 +86,13 @@ function App() {
 }
 
 function TailwindButton(props) {
-  const {setsearchGenre, setMedia_type} = props;
-  console.log({setsearchGenre})
+  const {setSearchGenre, setSearchMediaType} = props;
+  console.log({setSearchGenre})
   return (
     <button
       onClick={() => { 
-        setsearchGenre('All Genres')
-        setMedia_type('All Media')
+        setSearchGenre('All Genres')
+        setSearchMediaType('All Media')
       }}
       className="bg-red-500 text-white font-medium px-4 py-2 m-5 rounded hover:bg-red-600"
     >
@@ -111,7 +103,7 @@ function TailwindButton(props) {
 }
 
 function GenreDropDown(props) {
-  const {setsearchGenre, searchGenre} = props
+  const {setSearchGenre, searchGenre} = props
   return (
     <div className="relative inline-flex gap-x-4">
       <svg
@@ -127,7 +119,7 @@ function GenreDropDown(props) {
       </svg>
       
       <select
-        onChange= {(e) => setsearchGenre(e.target.value)} value={searchGenre}
+        onChange= {(e) => setSearchGenre(e.target.value)} value={searchGenre}
         className="border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 cursor-pointer focus:outline-none appearance-none"
       >
         <option value="All Genres">All Genres</option>
@@ -145,17 +137,17 @@ function GenreDropDown(props) {
 }
 
 function Items (props) {
-  const {mediaList, searchGenre, media_type} = props
-  console.log({searchGenre, media_type})
+  const {mediaList, searchGenre, searchMediaType} = props
+  console.log({searchGenre, searchMediaType})
 
   const items = mediaList.map(
     (val) => ({...val, genres:val.genres.replace('{','').replace('}','')})
   ).filter(item => {
 
     const hasGenre = searchGenre == 'All Genres' ? true : item.genres.split(',').includes(searchGenre)
-    const hasMediaType = media_type == 'All Media' ? true : item.media_type.includes(media_type)
+    const hasMediaType = searchMediaType == 'All Media' ? true : item.media_type.includes(searchMediaType)
 
-    console.log({item,hasGenre,hasMediaType,searchGenre,media_type,split:item.genres.split(',').join(',')})
+    console.log({item,hasGenre,hasMediaType,searchGenre,searchMediaType,split:item.genres.split(',').join(',')})
 
     return hasGenre && hasMediaType
   }).map((val) => (
@@ -187,11 +179,11 @@ function Items (props) {
   );
   return(
     <>{items}</>
-  )
+  );
 }
 
 function MediaDropDown(props) {
-  const {setMedia_type, media_type} = props
+  const {setSearchMediaType, searchMediaType} = props
 
   return (
     <div className="relative inline-flex gap-x-4">
@@ -207,7 +199,7 @@ function MediaDropDown(props) {
         />
       </svg>
       <select
-        onChange= {(e) => setMedia_type(e.target.value)} value={media_type}
+        onChange= {(e) => setSearchMediaType(e.target.value)} value={searchMediaType}
         className="border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 cursor-pointer focus:outline-none appearance-none"
       >
         <option value="All Media">All Media</option>
@@ -223,7 +215,6 @@ function MediaDropDown(props) {
   );
 }
 
-
 function Image(props) {
   const [imageURL, setImageURL] = useState("");
   const [isLoading, setLoading] = useState(true);
@@ -238,7 +229,7 @@ function Image(props) {
   },[]);
   
   if (isLoading) {
-    return <div className="m-24"><svg role="status" className=" ml-24 w-14 h-14 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+    return <div className="m-24"><svg role="status" className="  w-14 h-14 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
     <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
     </svg></div>;
@@ -251,9 +242,7 @@ function Image(props) {
       alt="Lorem Impsum"
     ></img>
   )
-};
-
-
+}
 
 export default App;
 
@@ -262,7 +251,7 @@ export default App;
 // const addMedia = () => {
 //   Axios.post("http://localhost:3004/create", {
 //     id: id,
-//     media_type: media_type,
+//     searchMediaType: searchMediaType,
 //     name: name,
 //     short_description: short_description,
 //     genres: genres,
@@ -289,7 +278,7 @@ export default App;
 //         <div>
 //           <h3>ID: {val.id}</h3>
 //           <h3>Name: {val.name}</h3>
-//           <h3>Media Type: {val.media_type}</h3>
+//           <h3>Media Type: {val.searchMediaType}</h3>
 //           <h3>Short Decription: {val.short_description}</h3>
 //           <h3>Genre: {val.genres}</h3>
 //         </div>
