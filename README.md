@@ -44,7 +44,7 @@ these include:
    - Creating a separate table with the unused values that currently have no API calls 2NF
 
 2. Sanitizing by removing brackets and columns that had little to no entries i.e franchises, regions
-   - I decided to keep these in case I wanted to add new information and research further down the line for scalibility
+   - I decided to keep these in case I wanted to add new information and research further down the line for scalability
 
 ## Decisions & Implementation (Changes)
 
@@ -68,12 +68,13 @@ these include:
 
 # Closing Thoughts
 
-This project was a huge learning experience. Despite the difficulties of being a student and time management I felt I put in work that I am
+This project was a huge learning experience. Despite the difficulties of being a student and time management, I felt I put in work that I am
 content with and yet still excited to learn from and improve on. Having an open mindset helped me to learn React features I had never before implemented
 and reinforced in me the value of modularity and planning. I was able to learn from user input given by friends and family and be dynamic - sometimes its scary 
-scrapping whole sections of code but knowing when to try a new direction proved to be incredinly valuable. I hope you can appreciate the work I put in and I would absolutely love feedback and am more than willing to answer any questions. Thank you for the time and consideration!
+scrapping whole sections of code but knowing when to try a new direction proved to be incredibly valuable. I hope you can appreciate the work I put in and I would absolutely love feedback and am more than willing to answer any questions. Thank you for the time and consideration!
 
 ~ Alex
 
-P.S. checkout this Pokemon night out web app its and C and uses Visual Studio but
+P.S. checkout this Pokemon night out web app its in C# and uses Visual Studio but
 if you have the time take a look and run it https://github.com/avanbussum/Visual-Studio-Pokemon-Night-Out
+no worries if not thanks (:
