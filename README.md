@@ -74,3 +74,6 @@ and reinforced in me the value of modularity and planning. I hope you can apprec
 than willing to answer any questions. Thank you for the time and consideration!
 
 ~ Alex
+
+P.S. checkout this Pokemon night out web app its and C and uses Visual Studio but
+if you have the time take a look and run it https://github.com/avanbussum/Visual-Studio-Pokemon-Night-Out
