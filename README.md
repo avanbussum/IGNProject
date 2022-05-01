@@ -29,10 +29,9 @@ Step 4. Make sure both client and server are running :
 # Break Down & Thoughts
 ## Data
 - Storing - Data was stored using MySQL in a backend database
-- Sanitizing - Repetitive strings were sanitized as in long description, brackets were removed, 
-  some categories were not included in the front end due to their lack of information or repetitiveness
--Normalizing - Based off of 1NF & 2NF 
--Indexing - The data was indexed based off of the primary key ID
+- Sanitizing - Repetitive strings were sanitized as in long description, brackets were removed, some categories were not included in the front end due to their lack of information or repetitiveness
+- Normalizing - Based off of 1NF & 2NF 
+- Indexing - The data was indexed based off of the primary key ID
 
 Due to time constraints there were a few data changes that if I had more time I would have normalized more
 these include: 
