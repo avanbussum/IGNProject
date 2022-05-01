@@ -30,7 +30,7 @@ Step 4. Make sure both client and server are running :
 ## Data
 - Storing - Data was stored using MySQL in a backend database
 - Sanitizing - Repetitive strings were sanitized as in long description, brackets were removed, some categories were not included in the front end due to their lack of information or repetitiveness
-- Normalizing - Based off of 1NF & 2NF 
+- Normalizing - Based off of 1NF & 2NF https://www.bmc.com/blogs/data-normalization/
 - Indexing - The data was indexed based off of the primary key ID
 
 Due to time constraints there were a few data changes that if I had more time I would have normalized more
@@ -39,8 +39,8 @@ these include:
 1. Further normalizing the original CSV, the data in the table is all relevant but very large and could be broken 
    down further this includes:
    
-   - Splitting up the genres column into a new table due to data members with multiple values e.g. {Drama,Action} 1NF
-   - Creating a separate table with the unused values that currently have no API calls 2NF
+   - Splitting up the genres column into a new table due to data members with multiple values e.g. {Drama,Action} (1NF)
+   - Creating a separate table with the unused values that currently have no API calls (2NF)
 
 2. Sanitizing by removing brackets and columns that had little to no entries i.e franchises, regions
    - I decided to keep these in case I wanted to add new information and research further down the line for scalability
