@@ -8,7 +8,7 @@ that utilizes the given CSV and API endpoints using axios.
 
 Step 1. Simply Fork & Clone
 
-Step 2. port is 3004 for but should connect w/ npm start
+Step 2. port is 3004 for server but should connect w/ npm start
 ```bash
 cd server
 npm install
@@ -70,8 +70,8 @@ these include:
 
 This project was a huge learning experience. Despite the difficulties of being a student and time management I felt I put in work that I am
 content with and yet still excited to learn from and improve on. Having an open mindset helped me to learn React features I had never before implemented
-and reinforced in me the value of modularity and planning. I hope you can appreciate the work I put in and I would absolutely love feedback and am more
-than willing to answer any questions. Thank you for the time and consideration!
+and reinforced in me the value of modularity and planning. I was able to learn from user input given by friends and family and be dynamic - sometimes its scary 
+scrapping whole sections of code but knowing when to try a new direction proved to be incredinly valuable. I hope you can appreciate the work I put in and I would absolutely love feedback and am more than willing to answer any questions. Thank you for the time and consideration!
 
 ~ Alex
 
