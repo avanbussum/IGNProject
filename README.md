@@ -52,7 +52,7 @@ these include:
    I went back and forth between utilizing a cache and a database as a cache seemed more dynamic with the current time restraints compared 
    to creating a new data table.
    
-   Nevertheless moving forward I feel a database is the way to go as the image load time can be frustrating.
+   - Nevertheless moving forward I feel a database is the way to go as the image load time can be frustrating.
 
 2. Pagination is another implementation I feel would include many benefits in comparison to the current display which includes almost 
    every database item both in terms of load time and useability
@@ -64,7 +64,7 @@ these include:
    This ended up being much more efficient but at the cost of a few API calls. Moving forward I would like to utilize a few more API
    calls more specific to certain data that isn't displayed on the cards...
    
-   Perhaps adding a button element within my display cards for more information
+   - Perhaps adding a button element within my display cards for more information
 
 # Closing Thoughts
 
@@ -73,4 +73,4 @@ content with and yet still excited to learn from and improve on. Having an open 
 and reinforced in me the value of modularity and planning. I hope you can appreciate the work I put in and I would absolutely love feedback and am more
 than willing to answer any questions. Thank you for the time and consideration!
 
-- Alex
+~ Alex
