@@ -57,7 +57,8 @@ these include:
    every database item both in terms of load time and useability
 
 3. Error handling for API calls on the client side. As the only real error handling in the program is console logging. I would implement
-   error handling elements that could display on the user side when a call goes wrong, especially in regards to the image calling.
+   error handling elements that could display on the user side when a call goes wrong, especially in regards to the image calling. Adding 404 
+   calls for elements that don't exist and making failures as clear as possible so that debugging and testing is easier 
    
 4. Utilizing filters on all the media was initially handled by API calls but later changed by mapping and filtering the data. 
    This ended up being much more efficient but at the cost of a few API calls. Moving forward I would like to utilize a few more API
