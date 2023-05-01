@@ -4,6 +4,8 @@ For the Code Foo Internship engineering application I decided to pick option 2 :
 I created a simple UI with an image web scraper, IGN review article access, and genre / media type filters
 that utilizes the given CSV and API endpoints using axios.
 
+UI - https://ibb.co/J2TLrv5 
+
 # Run it!
 
 Step 1. Simply Fork & Clone
@@ -24,7 +26,6 @@ Step 4. Make sure both client and server are running :
 *Please be patient for images to load and wait before you switch genres or media types (especially on the all media filter)
 *If you run into a long load wait simply soft refresh
 **this will be discussed in the Thoughts section
-
 
 # Break Down & Thoughts
 ## Data
